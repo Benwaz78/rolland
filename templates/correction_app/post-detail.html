@@ -1,0 +1,48 @@
+{% extends 'correction_app/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+Services
+{% endblock %}
+
+{% block content %}
+ <!-- END OF SITE MENU -->
+ <section id="sectionTitle">
+  <div class="pageTitle">
+    <h1>Single Post</h1>
+  </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+  <div class="row">
+    <div class="col-sm-9 text-center" id="detailContent">
+        <div class="contain-img">
+          <div class="img-div" style="height: 250px">
+              <img src="{% static 'correction_app/images/blog-img1.jpg' %}" class="img-responsive">
+          </div>
+          <p>
+            Time:8:30am, Category:<a href="sport.html">Sport.</a>. 
+            
+          </p>
+        </div>
+        <div class="detail-content">
+          <h2>Mark Zuckerberg is the sixth richest Man</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum,
+            possimus, hic quibusdam aliquam sit natus aut fugiat sapiente, odio fuga
+            debitis reiciendis, pariatur officiis non consequuntur harum illum! Delectus!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum,
+            possimus, hic quibusdam aliquam sit natus aut fugiat sapiente, odio fuga
+            debitis reiciendis, pariatur officiis non consequuntur harum illum! Delectus!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum,
+            possimus, hic quibusdam aliquam sit natus aut fugiat sapiente, odio fuga
+            debitis reiciendis, pariatur officiis non consequuntur harum illum! Delectus!
+          </p>
+        </div>
+
+    </div>
+    {% include 'correction_app/sidebar.html' %}
+    <!-- END OF ASIDE CONTENT -->
+  </div>
+</section>
+{% endblock %}

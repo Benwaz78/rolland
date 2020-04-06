@@ -1,0 +1,51 @@
+{% extends 'correction_app/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+Services
+{% endblock %}
+
+{% block content %}
+<section id="sectionTitle">
+  <div class="pageTitle">
+    <h1>5 Post From Sports Category</h1>
+  </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+  <div class="row">
+    <div class="col-sm-9" id="mainContent">
+      {% if post_key %}
+        {% for post in post_key %}
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <div class="thumbnail">
+              <img src="{{ post.pst_img.url }}">
+            </div>
+          </div> 
+          <div class="col-md-8 col-sm-8">
+            <div class="blog-content">
+               <p>
+                Time:{{post.created_date }}, Category:<a href="sport.html">{{post.cat.cat_name }}.</a>. 
+                Posted By: <a href="#">{{post.poster.username }}</a>.
+                
+              </p>
+              <h2>{{ post.pst_title }}</h2>
+              <p>
+                {{ post.content }}
+              </p>
+              <a href="{% url 'correction_app:post_detail' %}" class="btn btn-success">Readmore</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      {% endif %}
+     
+      <!-- END OF BLOG ROW 1 -->
+     
+    </div>
+   {% include 'correction_app/sidebar.html' %}
+  </div>
+</section>
+{% endblock %}

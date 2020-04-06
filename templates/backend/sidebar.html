@@ -1,0 +1,39 @@
+{% load static %}
+<div class="col-sm-3" id="adim-sidebar">
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="{% static 'backend/images/user.jpg' %}" class="img-circle">
+      </div>
+      <div class="col-sm-9">
+        <span>Benedict</span><br>
+        <span class="fa fa-circle text-success"></span>
+        Online<br>
+      </div>
+    </div>
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+             <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+               Student Management
+               <span class="pull-right"> 
+                 <span class="fa fa-angle-left"></span>
+               </span>
+             </a>
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="nav">
+              <li>
+                <a href="{% url 'backend:add_student' %}">
+                  <span class="fa fa-circle-o"></span>
+                   Add Student
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

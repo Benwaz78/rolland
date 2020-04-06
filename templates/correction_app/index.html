@@ -1,0 +1,63 @@
+{% extends 'correction_app/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title%}
+Home
+
+{% endblock %}
+
+
+{% block content %}
+<section id="banner">
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-9 text-center">
+      <div class="caption">
+        <h1>Join Us</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet minus, esse ex molestias maiores. Provident nam totam modi, expedita quos sit voluptates distinctio porro illo esse asperiores, animi eveniet ipsam?
+        </p>
+        <a href="#" class="btn btn-primary">Readmore</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="services" class="text-center">
+  <div class="page-header">
+    <h1>Services</h1>
+  </div>
+  <div class="row">
+    {% if srv_key %}
+    {% for sr in srv_key %}
+    <div class="col-sm-4">
+      <span class="fa fa-android"></span>
+      <h1>{{ sr.srv_title }} </h1>
+      <p>
+        {{ sr.srv_content }}
+      </p>
+      <a href="#" class="btn btn-primary">Readmore</a>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>  
+  <div class="page-header">
+    <h1>Our Board</h1>
+  </div>
+  <div class="row">
+    {% if abt_key %}
+    {% for ab in abt_key %}
+    <div class="col-sm-3">
+      <a href="{% url 'about_detail' ab.id %}">
+        <img src="{{ ab.abt_img.url }}" class="img-behave img-responsive" alt="">
+      </a>
+      <h1>{{ ab.abt_title }} </h1>
+      <p>
+        {{ ab.abt_content|truncatewords:10 }}
+      </p>
+      <a href="{% url 'about_detail' ab.id %}" class="btn btn-primary">Readmore</a>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

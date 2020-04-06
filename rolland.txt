@@ -1,0 +1,17 @@
+I have to django apps inside the rolland project
+1. which are correction_app and backend
+2. Each app is maintaining its own urls.py
+3. check the models.py on the backend app Will see d ExtendUser model I created
+4. check the forms.py to see d class ExtendUserForm I created
+5. view the views.py
+6. check d urls.py
+7. The HTML template for adding student is under backend/add-student.html that is where I added d django form tags
+8. to login enter the url  http://127.0.0.1:8000/ and click on the login link on the home page menu bar
+9. use this username and password to login
+a. Username: benedict
+b. Password: pass1234567
+10. Try and add student u will see this error poping up
+   IntegrityError at /backoffice/add-student/
+   UNIQUE constraint failed: backend_extenduser.user_id
+11. Please I need this to be sorted out urgently
+

@@ -1,0 +1,47 @@
+{% extends 'correction_app/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+<section id="sectionTitle">
+  <div class="pageTitle">
+    <h1>Contact</h1>
+  </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+  <div class="row">
+    <div class="col-sm-9" id="mainContent">
+      <div class="row">
+        <div class="col-sm-12">
+         <div class="row">
+             <div class="col-sm-6">
+                <h2>Basic Form 1</h2>
+                <form method="post">
+                    <!-- <table> -->
+                        {{ key.as_p }}
+                    <!-- </table> -->
+                    
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary" value="Submit">
+
+                </form>
+             </div>
+             <div class="col-sm-6">
+                <form method="post">
+                  <!-- {{ style_key }}
+                  {% csrf_token %} -->
+                  <input type="submit" class="btn btn-warning" value="Send">
+                </form>
+             </div>
+         </div>
+        </div>
+      </div>
+    </div>
+   {% include 'correction_app/sidebar.html' %}
+  </div>
+</section>
+{% endblock %}

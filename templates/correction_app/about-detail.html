@@ -1,0 +1,31 @@
+{% extends 'correction_app/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+{{ det_key.abt_title }}
+{% endblock %}
+
+{% block content %}
+<section id="content">
+    <div class="row">
+      <div class="col-sm-9 text-center" id="detailContent">
+          {% if det_key %}
+          <div class="contain-img">
+            <div class="img-div">
+                <img src="{{ det_key.abt_img.url }}" class="img-responsive">
+            </div>
+          </div>
+          <div class="detail-content">
+            <h2>{{ det_key.abt_title }}</h2>
+            <p>
+              {{ det_key.abt_content }}
+            </p>
+          </div>
+          {% endif %}
+
+      </div>
+     {% include 'correction_app/sidebar.html' %}
+    </div>
+</section>
+
+{% endblock %}

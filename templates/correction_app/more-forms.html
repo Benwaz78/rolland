@@ -1,0 +1,82 @@
+{% extends 'correction_app/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+<section id="sectionTitle">
+  <div class="pageTitle">
+    <h1>Contact</h1>
+  </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+  <div class="row">
+    <div class="col-sm-9" id="mainContent">
+      <div class="row">
+        <div class="col-sm-12">
+         <div class="row">
+             <div class="col-sm-6">
+                <h2>Form 1</h2>
+                <form method='post'>
+                    {{ form1 }}
+                    {% csrf_token %}
+                    <input type="submit" value="Submit" class="btn btn-danger">
+                </form>
+               
+             </div>
+             <div class="col-sm-6">
+               {% if messages %}
+               {% for mess in messages %}
+                  <div class="alert alert-success">{{ mess }}</div>
+               {% endfor %}
+               {% endif %}
+              <h2>Form 2</h2>
+              <form method='post'>
+                <!-- START THE LOGIC FOR HIDDEN FIELDS -->
+                {% for my_hidden in form2.hidden_fields %}
+                  {% if my_hidden.errors %}
+                  <!-- This will loop through the errors -->
+                  {% for mrr in my_hidden.errors %}
+                    <div class="alert alert-danger">{{ mrr }}</div>
+                  {% endfor %}
+                  <!-- END Hidden error -->
+                  {% endif %}
+                  <!-- SHOW HIDDEN FIELD WHEN YOU INSPECT -->
+                  {{ my_hidden }}
+                  <!-- END COMMENT -->
+                 {% endfor %}
+                 <!-- END THE LOGIC FOR HIDDEN -->
+
+
+                  {% for my_field in form2.visible_fields %}
+                    <!-- THIS IS FOR ERROR IN THE FORM -->
+                      {% if my_field.errors %}
+                          {% for err in my_field.errors %}
+                          <div class="alert alert-danger">{{ err }}</div>
+                          {% endfor %}
+                      {% endif %}
+                     <!-- THIS IS FOR THE FIELDS -->
+                      <div class="form-group">
+                        {{ my_field.label_tag }}
+                        {{ my_field }}
+                        {% if my_field.help_text %}
+                        <span class="help-block">{{ my_field.help_text }}</span>
+                        {% endif %}
+                      </div>
+                      <!-- END THE FIELDS -->
+                  {% endfor %}
+                  {% csrf_token %}
+                  <input type="submit" value="Submit" class="btn btn-danger">
+              </form>
+             </div>
+         </div>
+        </div>
+      </div>
+    </div>
+   {% include 'correction_app/sidebar.html' %}
+  </div>
+</section>
+{% endblock %}

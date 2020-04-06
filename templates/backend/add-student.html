@@ -1,0 +1,25 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+{% block title %}
+Add Student
+{% endblock %}
+
+{% block content %}
+<div class="col-sm-9" id="admin-main-content">
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+       <div class="post-content">
+       
+         <h3>Add Student</h3>
+
+         <form  method="post" class="form">
+            {{ reg }}
+            {{ ext }}
+           {% csrf_token %}
+           <input type="submit"  class="btn btn-success btn-block" value="Add Student">
+         </form>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

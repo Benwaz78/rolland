@@ -1,0 +1,24 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+{% block title %}
+Add Courses
+{% endblock %}
+
+{% block content %}
+<div class="col-sm-9" id="admin-main-content">
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+       <div class="post-content">
+       
+      
+         <form method="post" class="form">
+             <h2>Are your sure you want to delete</h2>
+             {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Delete">
+            <a class='btn btn-success' href="{% url 'backend:list_course_view' %}">Cancel</a>
+         </form>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
