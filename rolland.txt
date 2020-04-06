@@ -14,4 +14,5 @@ b. Password: pass1234567
    IntegrityError at /backoffice/add-student/
    UNIQUE constraint failed: backend_extenduser.user_id
 11. Please I need this to be sorted out urgently
+12. The Django version is Django 2.1
 
